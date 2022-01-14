@@ -1,41 +1,55 @@
-l, c, p = input().split()
-l = int(l)
-c = int(c)
-p = int(p) - 1
-
-m = []
-v = []
-e = False
+import re
 
 while (1):
-    if l == 0 and c == 0 and p == 0:
+    l, c, p = input().split()
+    l = int(l)
+    c = int(c)
+    p = int(p) - 1
+
+    if l == 0 and c == 0 and p == -1:
         break
+
+    m = []
+    e = False
 
     for i in range(l):
         m.append(input().split())
-        print(m)
-        v.append(int(m[i][0]) - int(m[i][c - 1]))
 
     for i in range(l):
-        for j in range(c):
-            if not e and j == p:
-                # calcula a difetença entre os ventiladores
-                # desloca o balão
-                # uma unidade
-                # verfica se a nova posição tem ventilador
-                while (v[i] != 0):
-                    if v[i] > 0:
-                        p += 1
-                    if v[i] < 0:
-                        p -= 1
+        # se já esotourou
+        if e:
+          break
 
-                    if m[i][p] != '0':
-                        e = True
-                        break
+        # pega a difetença entre os ventiladores
+          # 1 : slice à esquerda e à direita de p
+          # 2a: iterar ate ecnontrar m[i][j] != 0
+          # 2b: encontrar primeiro nro != 0, da direção do balão à extremidade
+
+        mLeft = ''.join(m[i][:p][::-1])
+        mRight = ''.join(m[i][p:])
+
+        dLeft = re.findall("[1-9]", mLeft)[0]
+        dRight = re.findall("[1-9]", mRight)[0]
+
+        diff = int(dLeft) - int(dRight)
+        
+        # enquanto restar deslocamento
+          # desloca uma unidade
+          # se a nova posição tem ventilador, finaliza
+
+        while (diff != 0):
+            if diff > 0:
+                p += 1
+                diff -= 1
+            elif diff < 0:
+                p -= 1
+                diff += 1
+
+            if m[i][p] != '0':
+                e = True
+                break
 
     if (e):
-        print('BOOM', i, j)
+        print('BOOM', i + 1, p + 1)
     else:
         print('OUT', p + 1)
-
-print(m)
