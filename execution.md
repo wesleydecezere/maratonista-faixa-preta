@@ -53,6 +53,3 @@ Você deve ver a frase *Hello World, I'm a C++ lover <3* na linha seguinte.
 # Referências
 1. [Manual do compilador clang](https://clang.llvm.org/docs/UsersManual.html)
 2. [Diferença entre GCC e clang](https://pt.stackoverflow.com/questions/142573/diferen%C3%A7a-entre-gcc-clang)
-
-
-// TODO: deixar arquivos de exemplo, para serem executados neste tutorial
