@@ -29,7 +29,7 @@ while(cn != c):
     
     out += ' '.join(mtx[i]) + ('\n' if i < m - 1 else '' )
 
-  print("Parade {}:".format(cn))
+  print("Parede {}:".format(cn))
   print(out)
 
 print()  
