@@ -31,5 +31,3 @@ while(cn != c):
 
   print("Parede {}:".format(cn))
   print(out)
-
-print()  
