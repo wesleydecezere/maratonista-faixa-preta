@@ -2,7 +2,7 @@ n, k = input().split()
 n = int(n)
 k = int(k)
 
-h = input().split()
+h = list(map(int, input().split()))
 
 pico = 0
 
