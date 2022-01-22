@@ -3,7 +3,6 @@ y, x = list(map(int, input().split()))
 x -= 1
 y -= 1
 
-
 mtx = []
 
 for _ in range(l):
