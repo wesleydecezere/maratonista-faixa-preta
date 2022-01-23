@@ -1,10 +1,8 @@
 #include <iostream>
-#include <fstream> 
 using namespace std;
 
-int main(int argc, char** argv) {
+int main() {
   string inputLine;
-  ifstream input(argv[1]);
 
   string delimiter = "/";
   size_t pos = 0;
@@ -16,7 +14,9 @@ int main(int argc, char** argv) {
   float duration;
   int correct;
 
-  while (getline (input, inputLine)) {
+  while (1) {
+    cin >> inputLine;
+    
     if (inputLine == "*") break;
 
     correct = 0;
@@ -37,7 +37,5 @@ int main(int argc, char** argv) {
 
     cout << correct << endl;
   }
-
-  input.close();
 } 
 
