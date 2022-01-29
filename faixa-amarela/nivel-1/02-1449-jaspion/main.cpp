@@ -44,24 +44,27 @@ int main(int argc, char** argv) {
       getline(input, phrase);
       out = "";
 
-      while ((pos = phrase.find(delimiter)) != string::npos) {
-          pos = phrase.find(delimiter);
-
-          if (pos != string::npos) word = phrase.substr(0, pos);
-          else word = phrase;
-          
+      while (1) {
+        if ((pos = phrase.find(delimiter)) == string::npos) {
+          word = phrase;
           translate = table[word];
 
           if (translate == "") out.append(word);
           else out.append(translate);
 
-          if (pos != string::npos) {
-            out.append(" ");
-            phrase.erase(0, pos + delimiter.length());
-          } 
-      }
-      out.append(table[phrase]);
+          break;
+        }
 
+        word = phrase.substr(0, pos);          
+        translate = table[word];
+
+        if (translate == "") out.append(word);
+        else out.append(translate);
+
+        out.append(" ");
+        phrase.erase(0, pos + delimiter.length());
+      }
+      
       cout << out << endl;
     }
     
