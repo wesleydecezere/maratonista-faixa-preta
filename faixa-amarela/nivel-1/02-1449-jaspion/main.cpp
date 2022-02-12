@@ -2,36 +2,33 @@
 #include <fstream>
 #include <vector>
 #include <map>
+#include<sstream>
 
 using namespace std;
 
 int main(int argc, char** argv) {
   ifstream input(argv[1]);
+  string inLine;
 
-  string inputLine;
-  string word;
-  string translate;
-  string phrase;
   string delimiter = " ";  
-  string out;
-
-  int t;  
-  int m;
-  int n;
-
   size_t pos = 0;
 
+  int t, m, n;  
+
+  stringstream sPhrase;
+  string word, translate, phrase;
+  string out;
   map<string, string> table;
 
-  getline (input, inputLine);
-  t = stoi(inputLine);
+  getline(input, inLine);
+  t = stoi(inLine);
 
   while (t--) {
-    getline (input, inputLine);
+    getline(input, inLine);
 
-    pos = inputLine.find(delimiter);
-    m = stoi(inputLine.substr(0, pos));
-    n = stoi(inputLine.substr(pos));
+    pos = inLine.find(delimiter);
+    m = stoi(inLine.substr(0, pos));
+    n = stoi(inLine.substr(pos));
 
     for (int i=0; i<m;) {
       getline(input, word);
@@ -42,29 +39,19 @@ int main(int argc, char** argv) {
 
     for (int i=0; i<n; i++) {
       getline(input, phrase);
+      stringstream sPhrase;
+      sPhrase << phrase;
       out = "";
 
-      while (1) {
-        if ((pos = phrase.find(delimiter)) == string::npos) {
-          word = phrase;
-          translate = table[word];
+      while (sPhrase >> word) {
+        if (out.length() != 0) out.append(" ");
 
-          if (translate == "") out.append(word);
-          else out.append(translate);
-
-          break;
-        }
-
-        word = phrase.substr(0, pos);          
         translate = table[word];
 
         if (translate == "") out.append(word);
         else out.append(translate);
-
-        out.append(" ");
-        phrase.erase(0, pos + delimiter.length());
       }
-      
+
       cout << out << endl;
     }
     
