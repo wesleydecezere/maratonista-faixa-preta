@@ -4,15 +4,6 @@
 
 using namespace std;
 
-template<typename Map>
-void PrintMap(Map& m) {
-  cout << "[ ";
-  for (auto &item : m) {
-    cout << item.first << ":" << item.second << " ";
-  }
-  cout << "]\n";
-}
-
 bool hasMoreDiffsThan(int nDiff, string s1, string s2) {
   int n = 0;
   int diff = 0;
@@ -27,10 +18,7 @@ bool hasMoreDiffsThan(int nDiff, string s1, string s2) {
   return false;
 } 
 
-
 int main(int argc, char** argv) {
-  ifstream input(argv[1]);
-
   string inputLine;
   string delimiter = " ";  
   size_t pos = 0;
@@ -41,14 +29,14 @@ int main(int argc, char** argv) {
 
 
   while(1) {
-    getline(input, inputLine);    
+    getline(cin, inputLine);    
     n = stoi(inputLine);
     if (n == 0) break;
 
     originalSign = {};
     
     for (int i=0; i<n; i++) {
-      getline(input, inputLine);
+      getline(cin, inputLine);
       
       pos = inputLine.find(delimiter);
       name = inputLine.substr(0, pos);
@@ -57,28 +45,20 @@ int main(int argc, char** argv) {
       originalSign[name] = sign;
     }
 
-    cout << "Original Signs - ";
-    PrintMap(originalSign);
-    cout << endl;
-
-    getline(input, inputLine);    
+    getline(cin, inputLine);    
     m = stoi(inputLine);
     fakeSigns = 0;
 
     for (int i=0; i<m; i++) {
-      getline(input, inputLine);
+      getline(cin, inputLine);
       
       pos = inputLine.find(delimiter);
       name = inputLine.substr(0, pos);
       actualSign = inputLine.substr(pos);
 
       if (hasMoreDiffsThan(2, originalSign[name], actualSign)) fakeSigns += 1;
-
-      cout << "Name: " << name << ", Actual sign: " << actualSign << endl;
     }
 
-    cout << "Fake signs: " << fakeSigns << endl << endl;
+    cout << fakeSigns << endl;
   }
-
-  input.close(); 
 }
