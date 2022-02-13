@@ -5,7 +5,6 @@
 using namespace std;
 
 int main(int argc, char** argv) {
-  ifstream input(argv[1]);
   string inLine;
   char delimiter = ' ';  
 
@@ -15,11 +14,11 @@ int main(int argc, char** argv) {
 
 
   while(1) {
-    getline(input, inLine);    
+    getline(cin, inLine);    
     n = stoi(inLine);
     if (n == 0) break;
 
-    getline(input, numbers);
+    getline(cin, numbers);
     numbers.erase(
       remove(numbers.begin(), numbers.end(), delimiter),
       numbers.end()
@@ -36,6 +35,4 @@ int main(int argc, char** argv) {
       numbers = numbers.substr(2);
     }
   }
-
-  input.close(); 
 }
