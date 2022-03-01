@@ -17,11 +17,11 @@ int main(int argc, char** argv) {
   char number;
   
   while(1) {
-    getline(input, inLine);    
+    getline(cin, inLine);    
     n = stoi(inLine);
     if (n == 0) break;
 
-    getline(input, inLine);
+    getline(cin, inLine);
     
     numbers.clear();
     copy(inLine.begin(), inLine.end(), std::back_inserter(numbers));
