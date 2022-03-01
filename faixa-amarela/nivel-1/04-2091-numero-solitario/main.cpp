@@ -3,6 +3,8 @@
 #include <algorithm>
 #include <vector>
 #include <bits/stdc++.h>
+#include <boost/algorithm/string/classification.hpp>
+#include <boost/algorithm/string/split.hpp>
 
 using namespace std;
 
@@ -12,24 +14,36 @@ int main(int argc, char** argv) {
   char delimiter = ' ';  
 
   int n;
-  vector<char> numbers = {};
-  vector<char>::iterator it;
-  char number;
+  vector<string> s_numbers = {};
+  vector<int> numbers = {};
+  vector<int>::iterator it;
+  int number;
   
   while(1) {
-    getline(cin, inLine);    
+    getline(input, inLine);    
     n = stoi(inLine);
     if (n == 0) break;
 
-    getline(cin, inLine);
-    
     numbers.clear();
-    copy(inLine.begin(), inLine.end(), std::back_inserter(numbers));
-    numbers.erase(
-      remove(numbers.begin(), numbers.end(), delimiter),
-      numbers.end()
-    );
-      
+    
+    // getline(input, inLine);
+    // boost::split(
+    //   s_numbers, 
+    //   inLine, 
+    //   boost::is_any_of(" "),
+    //   boost::token_compress_on
+    // );
+    
+    // for (int i=0; i<n; i++) {
+    //   numbers.push_back(stoi(s_numbers[i]));
+    // }
+
+    for (int i=0; i<n; i++) {
+      input >> inLine;
+      numbers.push_back(stoi(inLine));
+    }
+    getline(input, inLine);
+    
     while(1) {     
       number = numbers[0];
       numbers.erase(numbers.begin());
