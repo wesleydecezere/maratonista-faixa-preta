@@ -1,4 +1,4 @@
-# Detalhes para execução de scripts Python
+# Detalhes para execução de scripts C++
 
 ## Passar inputs como parâmetro, ao invés de digitá-las
 

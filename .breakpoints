@@ -1,5 +1,21 @@
 {
   "files": {
+    "faixa-branca/nível-1/1003-soma-simples/main.py": [
+      {
+        "id": "6feb94e2-0c49-4d4a-9f2a-3e944567528a",
+        "line": 4,
+        "version": 59,
+        "index": 36
+      }
+    ],
+    "faixa-branca/nível-1/2395-transporte-de-conteiner/main.py": [
+      {
+        "id": "b7e4dfb4-a85d-4626-aaa9-cfe18220cb0b",
+        "line": 9,
+        "version": 247,
+        "index": 114
+      }
+    ],
     "main.py": [
       {
         "id": "f5572152-40d5-46a7-951d-fa08ce0dabfc",
