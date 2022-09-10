@@ -22,6 +22,5 @@ while(1):
       if i == j and i == int(n/2):
         m[i][j] = '4'
 
-
     print(''.join(m[i]))
   print()

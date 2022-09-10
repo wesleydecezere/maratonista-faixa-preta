@@ -1,5 +1,21 @@
 {
   "files": {
+    "contest/A/main.py": [
+      {
+        "id": "efc07557-7cdc-4958-bc29-bfb4c2075a4b",
+        "line": 1,
+        "version": 976,
+        "index": 0
+      }
+    ],
+    "execution-cpp.md": [
+      {
+        "id": "ca729008-0477-4ecc-8866-7c551453db3a",
+        "line": 8,
+        "version": 2727,
+        "index": 324
+      }
+    ],
     "faixa-branca/nível-1/1003-soma-simples/main.py": [
       {
         "id": "6feb94e2-0c49-4d4a-9f2a-3e944567528a",
@@ -19,9 +35,9 @@
     "main.py": [
       {
         "id": "f5572152-40d5-46a7-951d-fa08ce0dabfc",
-        "line": 37,
-        "version": 1740,
-        "index": 591
+        "line": 1,
+        "version": 1920,
+        "index": 0
       }
     ]
   }
